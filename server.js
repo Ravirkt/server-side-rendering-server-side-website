@@ -35,9 +35,19 @@ app.set('views', './views')
 
 // Maak een GET route voor de index (meestal doe je dit in de root, als /)
 app.get('/', async function (request, response) {
-   // Render index.liquid uit de Views map
-   // Geef hier eventueel data aan mee
-   response.render('index.liquid')
+  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events?filter={"photo":{"_neq":null}}')
+  const apiResponseJSON = await apiResponse.json()
+  console.log(apiResponseJSON.data)
+
+  response.render('index.liquid', { events: apiResponseJSON.data })
+})
+
+app.get('/Utrecht', async function (request, response) {
+  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events?filter={"photo":{"_neq":null},"location":{"_eq":"Utrecht"}}')
+  const apiResponseJSON = await apiResponse.json()
+  console.log(apiResponseJSON.data)
+
+  response.render('index.liquid', { events: apiResponseJSON.data })
 })
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
