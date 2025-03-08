@@ -8,10 +8,10 @@ import { Liquid } from 'liquidjs';
 
 console.log('Hieronder moet je waarschijnlijk nog wat veranderen')
 // Doe een fetch naar de data die je nodig hebt
-// const apiResponse = await fetch('...')
+const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events')
 
 // Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
-// const apiResponseJSON = await apiResponse.json()
+const apiResponseJSON = await apiResponse.json()
 
 // Controleer eventueel de data in je console
 // (Let op: dit is _niet_ de console van je browser, maar van NodeJS, in je terminal)
@@ -81,6 +81,35 @@ app.get('/Arnhem', async function (request, response) {
 
   response.render('index.liquid', { events: apiResponseJSON.data })
 })
+
+app.get('/Online', async function (request, response) {
+  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events?filter={"photo":{"_neq":null},"location":{"_eq":"Online"}}')
+  const apiResponseJSON = await apiResponse.json()
+  console.log(apiResponseJSON.data)
+
+  response.render('index.liquid', { events: apiResponseJSON.data })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
