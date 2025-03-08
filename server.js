@@ -74,6 +74,14 @@ app.get('/Ermelo', async function (request, response) {
   response.render('index.liquid', { events: apiResponseJSON.data })
 })
 
+app.get('/Arnhem', async function (request, response) {
+  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events?filter={"photo":{"_neq":null},"location":{"_eq":"Arnhem"}}')
+  const apiResponseJSON = await apiResponse.json()
+  console.log(apiResponseJSON.data)
+
+  response.render('index.liquid', { events: apiResponseJSON.data })
+})
+
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
