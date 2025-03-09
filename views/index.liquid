@@ -126,7 +126,7 @@
 
   {% for event in events %}
     <section class="event-card-child-container">
-      <p class="caption">    {{ event.title | split: " " | slice: 0, 2 | join: " " | upcase }}</p>
+      <p class="caption">{{ event.title | split: " " | slice: 0, 2 | join: " " | upcase }}</p>
       <h4 class="event-card-title">{{ event.title }}</h4>
   
       <div class="time-location">
