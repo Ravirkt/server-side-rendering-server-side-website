@@ -126,17 +126,21 @@ select {
 }
 
 .input-field {
+  all: unset;
+  border: none;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  border-bottom: 1px solid black;
+  padding-bottom: 1em;
+
   font-family: "Archivo", sans-serif;
   font-size: clamp(16px, 1.2vw, 18px);
   line-height: clamp(24px, 2vw, 32px);
   letter-spacing: 0;
   font-weight: 400;
-
-  appearance: none;
-  border: 0;
-  border-bottom: 1px solid black;
-  padding-bottom: 1em;
-  outline: none;
 }
 
 li {
