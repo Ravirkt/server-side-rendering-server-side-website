@@ -40,17 +40,49 @@
 <main>
 <article class="event-cards-parent-container">
 
+{% for event in events limit:3 %}
   <section class="card-child-container">
     <figure class="card-image-container">
-      <img class="card-image" src="./assets/Image.png">
-      <figcaption class="image-caption">DDD</figcaption>
-      <time class="event-time-stamp" datetime="2024-11-09">WO 09 NOV
-        <p>/ AMSTERDAM</p>
+      {% if event.photo %}
+        <img class="card-image" src="https://fdnd-agency.directus.app/assets/{{ event.photo }}" alt="{{ event.title }}">
+      {% else %}
+        <img class="card-image" src="/assets/Image.png" alt="Default image">
+      {% endif %}
+      
+      <figcaption class="image-caption">
+        {% if event.title %}
+          {{ event.title | split: " " | slice: 0, 2 | join: " " | upcase }}
+        {% else %}
+         NADER BEPAALD
+      {% endif %}
+      </figcaption>
+      
+      <time class="event-time-stamp" datetime="{{ event.date }}">
+        {% if event.date %}
+          {{ event.date | upcase }}
+        {% else %}
+         NADER BEPAALD
+      {% endif %}
+        
+        <p>
+          {% if event.location %}
+            / {{ event.location | upcase }}
+          {% else %}
+            / NADER BEPAALD
+          {% endif %}
+        </p>
       </time>
-      <h3>DUTCH DIGITAL DAY:THE 10TH EDITION</h3>
+
+      <h3>
+        {% if event.title %}
+          {{ event.title | upcase }}
+        {% else %}
+          NADER BEPAALD
+        {% endif %}
+      </h3>
     </figure>
 
-    <a class="card-button button-text" href=""> Details
+    <a class="card-button button-text" href="">Details
       <svg class="arrow-logo" width="17" height="16" viewBox="0 0 17 16" fill="none"
         xmlns="http://www.w3.org/2000/svg">
         <path d="M8.5 13L3.4999 7.9999L8.5 2.99979" stroke="#364bf7" stroke-width="1.5"
@@ -60,6 +92,10 @@
       </svg>
     </a>
   </section>
+{% endfor %}
+
+
+
 
 </article>
 
@@ -74,7 +110,7 @@
     <div class="select-container">
 
       <select class="select-button-1" aria-label="select label" id="categorie" name="categorie">
-        <option value="alle">THEMA</option>
+        <option value="alle">{{test}}</option>
         <option value="DDDD">ALmere</option>
         <option value="DDDD">DDDD</option>
         <option value="DDDD">DDDD</option>
@@ -94,25 +130,39 @@
 
     <div class="select-container">
 
-    <select class="select-button-2" aria-label="select label" id="categorie" name="categorie" onchange="if(this.value) window.location.href=this.value;">
+    {% comment %} <select class="select-button-2" aria-label="select label" id="categorie" name="categorie" onchange="if(this.value) window.location.href='locaties/' + this.value;">
     <option value="">LOCATIE</option>
-        {% for event in events %}
+        {% for event in events add "location" %}
         {% if event.location %}
+          
     <option value="{{ event.location }}">{{ event.location | upcase }}</option>
         {% endif %}
         {% endfor %}
-    </select>
+    </select> {% endcomment %}
 
-      <span class="custom-plus">
-        <svg class="plus-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 4.5L12 19.5" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023"
-            stroke-linejoin="round" />
-          <path d="M19.5 12L4.5 12" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023"
-            stroke-linejoin="round" />
-        </svg>
+    <select class="select-button-2" aria-label="select label" id="categorie" name="categorie" onchange="if(this.value) window.location.href='/events/' + encodeURIComponent(this.value);">
+    <option value="">LOCATIE</option>
+    <option value="Alle-locaties">ALLE LOCATIES</option>
+    <option value="Ermelo">ERMELO</option>
+    <option value="Arnhem">ARNHEM</option>
+    <option value="Online">ONLINE</option>
+    <option value="Utrecht">UTRECHT</option>
+    <option value="Eindhoven">EINDHOVEN</option>
+    <option value="Austin, Texas">AUSTIN, TEXAS</option>
+    <option value="Nog-niet-bekend">NOG NIET BEKEND</option>
+</select>
 
-      </span>
+  
+
+
+<span class="custom-plus">
+    <svg class="plus-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 4.5L12 19.5" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023" stroke-linejoin="round" />
+        <path d="M19.5 12L4.5 12" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023" stroke-linejoin="round" />
+    </svg>
+</span>
+
+
     </div>
   </div>
 
@@ -127,14 +177,31 @@
   {% for event in events %}
     <section class="event-card-child-container">
       <p class="caption">{{ event.title | split: " " | slice: 0, 2 | join: " " | upcase }}</p>
-      <h4 class="event-card-title">{{ event.title }}</h4>
+  
+      <h4 class="event-card-title">
+        {% if event.title %}
+          {{ event.title }}
+        {% else %}
+          NADER BEPAALD
+        {% endif %}
+      </h4>
   
       <div class="time-location">
         <time class="event-time-stamp" datetime="{{ event.date }}">
+          {% if event.date %}
             {{ event.date | upcase }}
-            <p>/ {{ event.location | upcase }}</p>
+          {% else %}
+          NADER BEPAALD
+          {% endif %}
+          
+          <p>
+            {% if event.location %}
+              / {{ event.location | upcase }}
+            {% else %}
+              / NADER BEPAALD
+            {% endif %}
+          </p>
         </time>
-
       </div>
   
       <a class="event-card-button button-text" href="">
@@ -149,6 +216,7 @@
       </a>
     </section>
   {% endfor %}
+  
 </article>
 
 <!-- --------------------------- -->
