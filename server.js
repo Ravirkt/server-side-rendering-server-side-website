@@ -33,59 +33,35 @@ app.engine('liquid', engine.express());
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
-// Maak een GET route voor de index (meestal doe je dit in de root, als /)
-app.get('/', async function (request, response) {
-  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events?filter={"photo":{"_neq":null}}')
-  const apiResponseJSON = await apiResponse.json()
-  console.log(apiResponseJSON.data)
 
-  response.render('index.liquid', { events: apiResponseJSON.data })
+
+
+
+// index ophalen alle data van cards
+app.get('/events', async function (request, response) {
+  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events')
+  const apiResponseJSON = await apiResponse.json()
+  // console.log(apiResponseJSON.data)
+
+
+  response.render('events.liquid', { events: apiResponseJSON.data })
 })
 
-app.get('/Utrecht', async function (request, response) {
-  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events?filter={"photo":{"_neq":null},"location":{"_eq":"Utrecht"}}')
+// details pagina
+app.get('/event', async function (request, response) {
+  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events')
   const apiResponseJSON = await apiResponse.json()
-  console.log(apiResponseJSON.data)
+  // console.log(apiResponseJSON.data)
 
-  response.render('index.liquid', { events: apiResponseJSON.data })
+  response.render('detail-event.liquid', { events: apiResponseJSON.data })
+  // response.render('index.liquid', { test: "hallo dit is de specifieke event pagina" })
+
 })
 
-app.get('/Austin, Texas', async function (request, response) {
-  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events?filter={"photo":{"_neq":null},"location":{"_eq":"Austin%2C%20Texas"}}')
-  const apiResponseJSON = await apiResponse.json()
-  console.log(apiResponseJSON.data)
 
-  response.render('index.liquid', { events: apiResponseJSON.data })
-})
 
-app.get('/Eindhoven', async function (request, response) {
-  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events?filter={"photo":{"_neq":null},"location":{"_eq":"Eindhoven"}}')
-  const apiResponseJSON = await apiResponse.json()
-  console.log(apiResponseJSON.data)
 
-  response.render('index.liquid', { events: apiResponseJSON.data })
-})
 
-app.get('/Ermelo', async function (request, response) {
-  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events?filter={"photo":{"_neq":null},"location":{"_eq":"Ermelo"}}')
-  const apiResponseJSON = await apiResponse.json()
-  console.log(apiResponseJSON.data)
-
-  response.render('index.liquid', { events: apiResponseJSON.data })
-})
-
-app.get('/Arnhem', async function (request, response) {
-  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events?filter={"photo":{"_neq":null},"location":{"_eq":"Arnhem"}}')
-  const apiResponseJSON = await apiResponse.json()
-  console.log(apiResponseJSON.data)
-
-  response.render('index.liquid', { events: apiResponseJSON.data })
-})
-
-app.get('/Online', async function (request, response) {
-  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events?filter={"photo":{"_neq":null},"location":{"_eq":"Online"}}')
-  const apiResponseJSON = await apiResponse.json()
-  console.log(apiResponseJSON.data)
 
 
 
