@@ -87,8 +87,81 @@ app.get('/Online', async function (request, response) {
   const apiResponseJSON = await apiResponse.json()
   console.log(apiResponseJSON.data)
 
-  response.render('index.liquid', { events: apiResponseJSON.data })
-})
+
+
+
+
+
+
+
+app.get('/events/:id', async function (request, response) {
+  const location = request.params.id;
+
+  let apiResponse;
+
+  if (location === 'Alle-locaties') {
+
+    apiResponse = await fetch(`https://fdnd-agency.directus.app/items/dda_events`);
+
+  } else if (location === 'Nog-niet-bekend') {
+    apiResponse = await fetch(`https://fdnd-agency.directus.app/items/dda_events?filter={"location":{"_null":true}}`);
+
+  } else if (location) {
+    apiResponse = await fetch(`https://fdnd-agency.directus.app/items/dda_events?filter={"location":{"_eq":"${location}"}}`);
+    
+  } else {
+
+    apiResponse = await fetch(`https://fdnd-agency.directus.app/items/dda_events`);
+  }
+
+  const apiResponseJSON = await apiResponse.json();
+  console.log(apiResponseJSON);
+
+  response.render('events.liquid', { events: apiResponseJSON.data });
+});
+
+
+
+
+// app.get('/Austin, Texas', async function (request, response) {
+//   const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events?filter={"photo":{"_neq":null},"location":{"_eq":"Austin%2C%20Texas"}}')
+//   const apiResponseJSON = await apiResponse.json()
+//   console.log(apiResponseJSON.data)
+
+//   response.render('index.liquid', { events: apiResponseJSON.data })
+// })
+
+// app.get('/Eindhoven', async function (request, response) {
+//   const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events?filter={"photo":{"_neq":null},"location":{"_eq":"Eindhoven"}}')
+//   const apiResponseJSON = await apiResponse.json()
+//   console.log(apiResponseJSON.data)
+
+//   response.render('index.liquid', { events: apiResponseJSON.data })
+// })
+
+// app.get('/Ermelo', async function (request, response) {
+//   const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events?filter={"photo":{"_neq":null},"location":{"_eq":"Ermelo"}}')
+//   const apiResponseJSON = await apiResponse.json()
+//   console.log(apiResponseJSON.data)
+
+//   response.render('index.liquid', { events: apiResponseJSON.data })
+// })
+
+// app.get('/Arnhem', async function (request, response) {
+//   const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events?filter={"photo":{"_neq":null},"location":{"_eq":"Arnhem"}}')
+//   const apiResponseJSON = await apiResponse.json()
+//   console.log(apiResponseJSON.data)
+
+//   response.render('index.liquid', { events: apiResponseJSON.data })
+// })
+
+// app.get('/Online', async function (request, response) {
+//   const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events?filter={"photo":{"_neq":null},"location":{"_eq":"Online"}}')
+//   const apiResponseJSON = await apiResponse.json()
+//   console.log(apiResponseJSON.data)
+
+//   response.render('index.liquid', { events: apiResponseJSON.data })
+// })
 
 
 
