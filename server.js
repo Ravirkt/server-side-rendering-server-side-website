@@ -60,8 +60,8 @@ app.get('/events/:location', async function (request, response) {
     apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events?filter={"location":{"_null":true}}');
 
   } else if (location) {
-    apiResponse = await fetch(`https://fdnd-agency.directus.app/items/dda_events?filter={"location":{"_eq":"${location}"}}`);
-    
+    apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events?filter={"location":{"_eq":"' + request.params.location + '"}}');
+
   } else {
     apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events');
   }
@@ -79,13 +79,15 @@ app.get('/events/:location', async function (request, response) {
 
 
 // details pagina
-app.get('/detail-event/:id', async function (request, response) {
-  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_events')
-  const apiResponseJSON = await apiResponse.json()
-  // console.log(apiResponseJSON.data)
+app.get('/events/detail-event/:id', async function (request, response) {
+  // const eventId = request.params.id;
 
-  response.render('detail-event.liquid', { eventDetails: apiResponseJSON.data })
+  const apiResponseDetails = await fetch('https://fdnd-agency.directus.app/items/dda_events/' + request.params.id)
+  const apiResponseDetailsJSON = await apiResponseDetails.json()
 
+  console.log(request.params.id)
+
+  response.render('detail-event.liquid', { eventDetails: apiResponseDetailsJSON.data })
 })
 
 
