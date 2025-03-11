@@ -84,22 +84,37 @@ header {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
+  column-gap: 1em;
+
+  @media (min-width: 800px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: 800px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
 }
 
 .card-child-container {
   display: flex;
   flex-direction: column;
   gap: 2em;
+  padding-bottom: 2em;
+
 }
 
 .card-image-container {
   display: flex;
   flex-direction: column;
   gap: 1em;
+  height: 30em;
+  width: 20em;
 }
 
 .card-image {
   border: 2px solid var(--fonts-color-1);
+  height: 25em;
+  max-width: 100%;
 }
 
 .image-caption {
