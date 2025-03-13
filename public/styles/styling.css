@@ -394,6 +394,7 @@ nav {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-100%);
   }
@@ -478,6 +479,7 @@ nav {
   display: flex;
   gap: 1em;
 }
+
 .social-media-item {
   border-bottom: 1px solid var(--fonts-color-1);
 }
