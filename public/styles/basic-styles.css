@@ -92,7 +92,7 @@ body {
   }
 
   time {
-    font-family: "Archivo", sans-serif;
+    font-family: "Martian Mono", sans-serif;
     font-size: clamp(16px, 1.5vw, 18px);
     line-height: clamp(24px, 2vw, 32px);
     letter-spacing: 0;

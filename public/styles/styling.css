@@ -102,6 +102,8 @@ nav {
   flex-direction: column;
   gap: 0.5em;
   padding-bottom: 2em;
+  /* border-bottom: 2px solid black; */
+
 }
 
 .card-image-container {
