@@ -1,14 +1,14 @@
 {% render 'partials/head.liquid' %}
-
 {% render 'partials/nav.liquid' %}
 
 
+  <!-- ============ contenblok-1 ============ -->
 
 
   {% if eventDetails %}
   <header>
-    <a class="hero-section-button" href="">
-      <img src="/assets/Icon.svg">
+    <a class="hero-section-button" href="http://localhost:8000/events">
+      <img src="/assets/Icon.svg" alt="">
       TERUG NAAR HOME
     </a>
     <h1 class="hero-section-title">{{ eventDetails.title }}</h1>
@@ -17,7 +17,7 @@
       {% if eventDetails.photo %}
         <img class="details-section-image" src="https://fdnd-agency.directus.app/assets/{{ eventDetails.photo }}" alt="{{ eventDetails.title }}">
         {% else %}
-        <img class="details-section-image" src="/assets/Image.png" alt="">
+        <img class="details-section-image" src="/assets/Image.png" alt="stock afbeelding">
       {% endif %}
 
         <figcaption class="image-subtitle">
@@ -29,7 +29,7 @@
         {% endif %},</span>
           <div class="event-location-container">
             <span class="event-location">{% if eventDetails.location %}
-              / {{ eventDetails.location | upcase }}
+              {{ eventDetails.location | upcase }}
             {% else %}
               / NADER BEPAALD
             {% endif %}</span>
@@ -40,7 +40,7 @@
 
 {% endif %}
 
-  <!-- ============ contenblok-1 ============ -->
+  <!-- ============ contenblok-2 ============ -->
 
 
   <main>
@@ -67,10 +67,9 @@
         </p>
     {% endif %}
 
-        
-        
     </section>
 
+  <!-- ============ contenblok-3 ============ -->
 
     <section class="agenda">
         <h2 class="agenda-title">Agenda</h2>
@@ -81,6 +80,9 @@
             <tr><td>Q&A</td><td>00:00 - 00:00</td></tr>
         </table>
     </section>
+
+  <!-- ============ contenblok-4 ============ -->
+
 
     <section class="sign-up-for-event-container">
       <h2 class="sign-up-form-title">Inschrijven</h2>
@@ -109,10 +111,15 @@
         </form>
   </section>
 
+    <!-- ============ contenblok-5 ============ -->
+
+
   <figure class="event-location-image-container">
     <img class="event-location-image" src="/assets/Image.png" alt="Sample Event Title">
   </figure>
     
+    <!-- ============ contenblok-6 ============ -->
+
 
   <section class="event-location-information-container">
         <small class="event-location-information">Locatie</small>
@@ -137,16 +144,7 @@
         </section>
 
 
-
-
-
-
-
-
   </main>
-
-      
-    
 
 </body>
 

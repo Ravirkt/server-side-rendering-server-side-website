@@ -71,9 +71,7 @@ body {
     font-weight: 400;
   }
 
-  image-caption,
-  small,
-  .image-subtitle {
+  .image-caption, small, .image-subtitle, .caption {
     font-family: "Martian Mono", sans-serif;
     font-size: clamp(14px, 1.2vw, 16px);
     line-height: clamp(20px, 1.8vw, 24px);
@@ -106,7 +104,7 @@ body {
 .button-text {
   text-decoration: none;
   color: var(--button);
-  font-family: "Archivo", sans-serif;
+  font-family: "Martian Mono", sans-serif;
   font-size: clamp(14px, 1.2vw, 16px);
   line-height: clamp(20px, 1.8vw, 24px);
   letter-spacing: -0.04em;
