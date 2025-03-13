@@ -66,9 +66,9 @@
         <svg class="arrow-logo" width="17" height="16" viewBox="0 0 17 16" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path d="M8.5 13L3.4999 7.9999L8.5 2.99979" stroke="#364bf7" stroke-width="1.5"
-            stroke-miterlimit="4.62023" />
+            stroke-miterlimit="4.62023">
           <path d="M13.5 8L3.5 8" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023"
-            stroke-linejoin="round"/>
+            stroke-linejoin="round">
         </svg>
       </a> 
     </section>
@@ -80,14 +80,14 @@
 <!-- ============ contenblok-2 ============ -->
 
 <!-- form voor filteren -->
-<form class="form-container" action="" method="GET">
+<form class="form-container">
   <input class="input-field" type="search" id="zoekterm" name="q" placeholder="Vul je e-mailadres in" required>
 
   <div class="select-parent-container">
 
     <div class="select-container">
 
-      <select class="select-button-1" aria-label="select label" id="categorie" name="categorie">
+      <select class="select-button-1" aria-label="select label" name="categorie">
         <option value="">THEMA</option>
         <option value="">WEBINAIR</option>
         <option value="">TECH</option>
@@ -97,7 +97,7 @@
         <svg class="plus-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path d="M12 4.5L12 19.5" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023"
-            stroke-linejoin="round" />
+            stroke-linejoin="round">
           <path d="M19.5 12L4.5 12" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023"
             stroke-linejoin="round">
         </svg>
@@ -107,18 +107,7 @@
 
 
     <div class="select-container">
-
-    {% comment %} <select class="select-button-2" aria-label="select label" id="categorie" name="categorie" onchange="if(this.value) window.location.href='locaties/' + this.value;">
-    <option value="">LOCATIE</option>
-        {% for event in events add "location" %}
-        {% if event.location %}
-          
-    <option value="{{ event.location }}">{{ event.location | upcase }}</option>
-        {% endif %}
-        {% endfor %}
-    </select> {% endcomment %}
-
-    <select class="select-button-2" aria-label="select label" id="categorie" name="categorie" onchange="if(this.value) window.location.href='/events/' + encodeURIComponent(this.value);">
+    <select class="select-button-2" aria-label="select label" name="categorie" onchange="if(this.value) window.location.href='/events/' + encodeURIComponent(this.value);">
     <option value="">LOCATIE</option>
     <option value="Alle-locaties">ALLE LOCATIES</option>
     <option value="Ermelo">ERMELO</option>
@@ -130,13 +119,11 @@
     <option value="Nog-niet-bekend">NOG NIET BEKEND</option>
 </select>
 
-  
-
 
 <span class="custom-plus">
     <svg class="plus-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 4.5L12 19.5" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023" stroke-linejoin="round" />
-        <path d="M19.5 12L4.5 12" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023" stroke-linejoin="round" />
+        <path d="M12 4.5L12 19.5" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023" stroke-linejoin="round">
+        <path d="M19.5 12L4.5 12" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023" stroke-linejoin="round">
     </svg>
 </span>
 
@@ -172,13 +159,13 @@
           NADER BEPAALD
           {% endif %}
           
-          <p>
+          <span>
             {% if event.location %}
               / {{ event.location | upcase }}
             {% else %}
               / NADER BEPAALD
             {% endif %}
-          </p>
+          </span>
         </time>
       </div>
   
@@ -187,9 +174,9 @@
         <svg class="event-card-button-icon" width="17" height="16" viewBox="0 0 17 16" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path d="M8.5 13L3.4999 7.9999L8.5 2.99979" stroke="#364bf7" stroke-width="1.5"
-            stroke-miterlimit="4.62023" />
+            stroke-miterlimit="4.62023">
           <path d="M13.5 8L3.5 8" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023"
-            stroke-linejoin="round" />
+            stroke-linejoin="round">
         </svg>
       </a>
     </section>
@@ -200,13 +187,13 @@
 <!-- --------------------------- -->
 <a class="more-events-button button-text">meer events laden
   <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <mask id="mask0_6_3019" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="17" height="16">
-      <rect x="0.5" width="16" height="16" fill="#D9D9D9" />
+    <mask id="" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="17" height="16">
+      <rect x="0.5" width="16" height="16" fill="#D9D9D9">
     </mask>
     <g mask="url(#mask0_6_3019)">
       <path
         d="M8.50033 13.3337C7.01144 13.3337 5.75033 12.817 4.71699 11.7837C3.68366 10.7503 3.16699 9.48921 3.16699 8.00033C3.16699 6.51144 3.68366 5.25033 4.71699 4.21699C5.75033 3.18366 7.01144 2.66699 8.50033 2.66699C9.26699 2.66699 10.0003 2.82533 10.7003 3.14199C11.4003 3.45866 12.0003 3.91144 12.5003 4.50033V2.66699H13.8337V7.33366H9.16699V6.00033H11.967C11.6114 5.3781 11.1253 4.88921 10.5087 4.53366C9.89199 4.1781 9.22255 4.00033 8.50033 4.00033C7.38921 4.00033 6.44477 4.38921 5.66699 5.16699C4.88921 5.94477 4.50033 6.88921 4.50033 8.00033C4.50033 9.11144 4.88921 10.0559 5.66699 10.8337C6.44477 11.6114 7.38921 12.0003 8.50033 12.0003C9.35588 12.0003 10.1281 11.7559 10.817 11.267C11.5059 10.7781 11.9892 10.1337 12.267 9.33366H13.667C13.3559 10.5114 12.7225 11.4725 11.767 12.217C10.8114 12.9614 9.72255 13.3337 8.50033 13.3337Z"
-        fill="#364BF7" />
+        fill="#364BF7">
     </g>
   </svg>
 </a>
@@ -229,7 +216,7 @@
 
     <div class="time-location">
       <time class="event-time-stamp" datetime="2024-11-09">WO 09 NOV
-        <p>/ AMSTERDAM</p>
+        <span class="static-location">/ AMSTERDAM</span>
       </time>
     </div>
 
@@ -254,7 +241,7 @@
 
     <div class="time-location">
       <time class="event-time-stamp" datetime="2024-11-09">WO 09 NOV
-        <p>/ AMSTERDAM</p>
+        <span class="static-location">/ AMSTERDAM</span>
       </time>
     </div>
 
@@ -266,9 +253,9 @@
       <svg class="event-card-button-icon" width="17" height="16" viewBox="0 0 17 16" fill="none"
         xmlns="http://www.w3.org/2000/svg">
         <path d="M8.5 13L3.4999 7.9999L8.5 2.99979" stroke="#364bf7" stroke-width="1.5"
-          stroke-miterlimit="4.62023" />
+          stroke-miterlimit="4.62023">
         <path d="M13.5 8L3.5 8" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023"
-          stroke-linejoin="round" />
+          stroke-linejoin="round">
       </svg>
     </a>
   </section>
@@ -279,7 +266,7 @@
 
     <div class="time-location">
       <time class="event-time-stamp" datetime="2024-11-09">WO 09 NOV
-        <p>/ AMSTERDAM</p>
+        <span class="static-location">/ AMSTERDAM</span>
       </time>
     </div>
 
@@ -291,9 +278,9 @@
       <svg class="event-card-button-icon" width="17" height="16" viewBox="0 0 17 16" fill="none"
         xmlns="http://www.w3.org/2000/svg">
         <path d="M8.5 13L3.4999 7.9999L8.5 2.99979" stroke="#364bf7" stroke-width="1.5"
-          stroke-miterlimit="4.62023" />
+          stroke-miterlimit="4.62023">
         <path d="M13.5 8L3.5 8" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023"
-          stroke-linejoin="round" />
+          stroke-linejoin="round">
       </svg>
     </a>
   </section>
@@ -319,13 +306,15 @@
 <!-- --------------------------- -->
 <a class="more-events-button button-text">meer events laden
   <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <mask id="mask0_6_3019" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="17" height="16">
-      <rect x="0.5" width="16" height="16" fill="#D9D9D9" />
+    <mask id="" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="17" height="16">
+      <rect x="0.5" width="16" height="16" fill="#D9D9D9">
     </mask>
     <g mask="url(#mask0_6_3019)">
       <path
-        d="M8.50033 13.3337C7.01144 13.3337 5.75033 12.817 4.71699 11.7837C3.68366 10.7503 3.16699 9.48921 3.16699 8.00033C3.16699 6.51144 3.68366 5.25033 4.71699 4.21699C5.75033 3.18366 7.01144 2.66699 8.50033 2.66699C9.26699 2.66699 10.0003 2.82533 10.7003 3.14199C11.4003 3.45866 12.0003 3.91144 12.5003 4.50033V2.66699H13.8337V7.33366H9.16699V6.00033H11.967C11.6114 5.3781 11.1253 4.88921 10.5087 4.53366C9.89199 4.1781 9.22255 4.00033 8.50033 4.00033C7.38921 4.00033 6.44477 4.38921 5.66699 5.16699C4.88921 5.94477 4.50033 6.88921 4.50033 8.00033C4.50033 9.11144 4.88921 10.0559 5.66699 10.8337C6.44477 11.6114 7.38921 12.0003 8.50033 12.0003C9.35588 12.0003 10.1281 11.7559 10.817 11.267C11.5059 10.7781 11.9892 10.1337 12.267 9.33366H13.667C13.3559 10.5114 12.7225 11.4725 11.767 12.217C10.8114 12.9614 9.72255 13.3337 8.50033 13.3337Z"
-        fill="#364BF7" />
+        d="M8.50033 13.3337C7.01144 13.3337 5.75033 12.817 4.71699 11.7837C3.68366 10.7503 3.16699 9.48921 3.16699 8.00033C3.16699 6.51144 3.68366 
+        5.25033 4.71699 4.21699C5.75033 3.18366 7.01144 2.66699 8.50033 2.66699C9.26699 2.66699 10.0003 2.82533 10.7003 3.14199C11.4003 3.45866 12.0003 3.91144 12.5003 4.50033V2.66699H13.8337V7.33366H9.16699V6.00033H11.967C11.6114 5.3781 11.1253 4.88921 10.5087 4.53366C9.89199 4.1781 9.22255 4.00033 8.50033 4.00033C7.38921 4.00033 6.44477 4.38921 5.66699 5.16699C4.88921 5.94477 4.50033 6.88921 4.50033 8.00033C4.50033 9.11144 4.88921 10.0559 5.66699 10.8337C6.44477 11.6114 7.38921 12.0003 8.50033 12.0003C9.35588 12.0003 10.1281 11.7559 10.817 11.267C11.5059 10.7781 11.9892 
+        10.1337 12.267 9.33366H13.667C13.3559 10.5114 12.7225 11.4725 11.767 12.217C10.8114 12.9614 9.72255 13.3337 8.50033 13.3337Z"
+        fill="#364BF7">
     </g>
   </svg>
 </a>
@@ -344,7 +333,7 @@
         <path d="M8.5 3L13.5001 8.0001L8.5 13.0002" stroke="#222226" stroke-width="1.5"
           stroke-miterlimit="4.62023" />
         <path d="M3.5 8L13.5 8" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023"
-          stroke-linejoin="round" />
+          stroke-linejoin="round">
       </svg>
     </button>
   </form>

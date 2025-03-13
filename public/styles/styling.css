@@ -85,6 +85,8 @@ nav {
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   column-gap: 1em;
+  justify-content: center;
+  align-items: center;
 
   @media (min-width: 800px) {
     grid-template-columns: 1fr 1fr;
@@ -98,7 +100,7 @@ nav {
 .card-child-container {
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 0.5em;
   padding-bottom: 2em;
 }
 
@@ -137,7 +139,7 @@ nav {
   align-items: center;
   gap: 0.3em;
   color: var(--button);
-  /* padding-bottom: 4em; */
+  padding-top: 3em;
 
   .arrow-logo {
     transform: rotate(180deg);

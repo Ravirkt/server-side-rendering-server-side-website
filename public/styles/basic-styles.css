@@ -63,7 +63,8 @@ body {
     font-weight: 400;
   }
 
-  p {
+  p,
+  .static-location {
     font-family: "Archivo", sans-serif;
     font-size: clamp(16px, 1.5vw, 18px);
     line-height: clamp(24px, 2vw, 32px);
@@ -71,7 +72,10 @@ body {
     font-weight: 400;
   }
 
-  .image-caption, small, .image-subtitle, .caption {
+  .image-caption,
+  small,
+  .image-subtitle,
+  .caption {
     font-family: "Martian Mono", sans-serif;
     font-size: clamp(14px, 1.2vw, 16px);
     line-height: clamp(20px, 1.8vw, 24px);
