@@ -44,7 +44,7 @@ nav {
 
 /* contentblok 2 */
 
-header {
+.header {
   padding-left: 1.5em;
   padding-right: 1.5em;
   padding-top: 3em;
@@ -87,12 +87,12 @@ header {
   column-gap: 1em;
 
   @media (min-width: 800px) {
-      grid-template-columns: 1fr 1fr;
-    }
+    grid-template-columns: 1fr 1fr;
+  }
 
-    @media (min-width: 800px) {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
+  @media (min-width: 800px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 .card-child-container {
@@ -100,7 +100,6 @@ header {
   flex-direction: column;
   gap: 2em;
   padding-bottom: 2em;
-
 }
 
 .card-image-container {
@@ -109,12 +108,15 @@ header {
   gap: 1em;
   height: 30em;
   width: 20em;
+  justify-content: center;
+  align-self: center;
 }
 
 .card-image {
   border: 2px solid var(--fonts-color-1);
   height: 25em;
   max-width: 100%;
+  object-fit: cover;
 }
 
 .image-caption {
@@ -135,6 +137,7 @@ header {
   align-items: center;
   gap: 0.3em;
   color: var(--button);
+  /* padding-bottom: 4em; */
 
   .arrow-logo {
     transform: rotate(180deg);
@@ -158,6 +161,7 @@ header {
 .select-parent-container {
   display: flex;
   gap: 1em;
+  justify-content: center;
 }
 
 .select-container {
