@@ -18,31 +18,32 @@
 <!-- ============ contenblok-1 ============ -->
 
 <main>
-<article class="event-cards-parent-container">
+  <article class="event-cards-parent-container">
 
-{% for event in events limit:3 %}
-  <section class="card-child-container">
-    <figure class="card-image-container">
-      {% if event.photo %}
-        <img class="card-image" src="https://fdnd-agency.directus.app/assets/{{ event.photo }}" alt="{{ event.title }}">
-      {% else %}
-        <img class="card-image" src="/assets/Image.png" alt="">
-      {% endif %}
-      
-      <figcaption class="image-caption">
-        {% if event.title %}
-          {{ event.title | split: " " | slice: 0, 2 | join: " " | upcase }}
+  {% for event in events limit:3 %}
+    <section class="card-child-container">
+      <figure class="card-image-container">
+        {% if event.photo %}
+          <img class="card-image" src="https://fdnd-agency.directus.app/assets/{{ event.photo }}" alt="{{ event.title }}">
         {% else %}
-         NADER BEPAALD
-      {% endif %}
-      </figcaption>
+          <img class="card-image" src="/assets/Image.png" alt="">
+        {% endif %}
+        
+        <figcaption class="image-caption">
+          {% if event.title %}
+            {{ event.title | split: " " | slice: 0, 2 | join: " " | upcase }}
+          {% else %}
+           NADER BEPAALD
+        {% endif %}
+        </figcaption>
+      </figure>
       
       <time class="event-time-stamp" datetime="{{ event.date }}">
         {% if event.date %}
           {{ event.date | upcase }}
         {% else %}
          NADER BEPAALD
-      {% endif %}
+        {% endif %}
         
         <p>
           {% if event.location %}
@@ -52,7 +53,7 @@
           {% endif %}
         </p>
       </time>
-
+  
       <h3>
         {% if event.title %}
           {{ event.title | upcase }}
@@ -60,34 +61,21 @@
           NADER BEPAALD
         {% endif %}
       </h3>
-
-      {% comment %} <a class="card-button button-text" href="">Details
-      <svg class="arrow-logo" width="17" height="16" viewBox="0 0 17 16" fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-        <path d="M8.5 13L3.4999 7.9999L8.5 2.99979" stroke="#364bf7" stroke-width="1.5"
-          stroke-miterlimit="4.62023" />
-        <path d="M13.5 8L3.5 8" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023"
-          stroke-linejoin="round" />
-      </svg>
-    </a> {% endcomment %}
-
-    </figure>
-
-     <a class="card-button button-text" href="/events/detail-event/{{ event.id }}">Details
-      <svg class="arrow-logo" width="17" height="16" viewBox="0 0 17 16" fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-        <path d="M8.5 13L3.4999 7.9999L8.5 2.99979" stroke="#364bf7" stroke-width="1.5"
-          stroke-miterlimit="4.62023" />
-        <path d="M13.5 8L3.5 8" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023"
-          stroke-linejoin="round">
-      </svg>
-    </a> 
-  </section>
-{% endfor %}
-
-
-
-</article>
+  
+      <a class="card-button button-text" href="/events/detail-event/{{ event.id }}">Details
+        <svg class="arrow-logo" width="17" height="16" viewBox="0 0 17 16" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.5 13L3.4999 7.9999L8.5 2.99979" stroke="#364bf7" stroke-width="1.5"
+            stroke-miterlimit="4.62023" />
+          <path d="M13.5 8L3.5 8" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023"
+            stroke-linejoin="round"/>
+        </svg>
+      </a> 
+    </section>
+  {% endfor %}
+  
+  </article>
+  
 
 <!-- ============ contenblok-2 ============ -->
 
