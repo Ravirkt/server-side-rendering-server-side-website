@@ -84,6 +84,13 @@ body {
     text-transform: uppercase;
   }
 
+  td {
+    font-family: "Martian Mono", sans-serif;
+    font-size: clamp(10px, 1.2vw, 12px);
+    line-height: clamp(20px, 1.8vw, 24px);
+    text-transform: uppercase;
+  }
+
   time {
     font-family: "Archivo", sans-serif;
     font-size: clamp(16px, 1.5vw, 18px);
