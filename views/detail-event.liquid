@@ -99,14 +99,13 @@
           <input type="number" name="fte" class="input-field" placeholder="FTE*" required min="0" step="0.1">
           <div class="sign-up-button-container">
             <button type="submit" class="sign-up-button">SCHRIJF ME IN
-              <svg class="signup-arrow-icon" width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M8.5 3L13.5001 8.0001L8.5 13.0002" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023" />
-  <path d="M3.5 8L13.5 8" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023" stroke-linejoin="round" />
-</svg>
-
+                <svg class="signup-arrow-icon" width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.5 3L13.5001 8.0001L8.5 13.0002" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023" />
+                    <path d="M3.5 8L13.5 8" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023" stroke-linejoin="round" />
+                </svg>
             </button>
           </div>
-        </form>
+      </form>
   </section>
 
     <!-- ============ contenblok-5 ============ -->
@@ -121,19 +120,19 @@
 
   <section class="event-location-information-container">
         <small class="event-location-information">Locatie</small>
-        <h3 class="event-adress-information">Stadskasteel Oudaen, <div class="event-location-container">
+        <h3 class="event-adress-information">Stadskasteel Oudaen, <span class="event-location-container">
           <span class="event-location">{% if eventDetails.location %}
              {{ eventDetails.location | upcase }}
           {% else %}
             NADER BEPAALD
           {% endif %}</span>
-        </div></h3>
+        </span></h3>
         <div class="maps-links-button-route-container">
             <button type="submit" class="google-maps-button">SCHRIJF ME IN
-              <svg class="signup-arrow-icon" width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M8.5 3L13.5001 8.0001L8.5 13.0002" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023" />
-  <path d="M3.5 8L13.5 8" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023" stroke-linejoin="round" />
-</svg>
+                <svg class="signup-arrow-icon" width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.5 3L13.5001 8.0001L8.5 13.0002" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023" />
+                <path d="M3.5 8L13.5 8" stroke="#222226" stroke-width="1.5" stroke-miterlimit="4.62023" stroke-linejoin="round" />
+            </svg>
 
             </button>
           </div>    
@@ -146,27 +145,6 @@
 
 </html>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</main>
 
 
   {% render 'partials/foot.liquid' %}
