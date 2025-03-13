@@ -71,9 +71,10 @@ body {
     font-weight: 400;
   }
 
-  figcaption,
-  small {
-    font-family: "Archivo", sans-serif;
+  image-caption,
+  small,
+  .image-subtitle {
+    font-family: "Martian Mono", sans-serif;
     font-size: clamp(14px, 1.2vw, 16px);
     line-height: clamp(20px, 1.8vw, 24px);
     letter-spacing: -0.04em;
